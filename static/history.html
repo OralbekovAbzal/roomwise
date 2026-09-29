@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
+  <title>Roomwise — История расчётов</title>
+  <link rel="stylesheet" href="ds.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="topbar">
+      <div class="brand">
+        <img class="rw-logo" src="assets/roomwise-mark.svg" alt="roomwise" width="28" height="28" />
+        <span class="brand-title">История</span>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="main-nav" id="main-nav">
+        <a href="index.html" class="nav-link">Калькулятор</a>
+        <a href="history.html" class="nav-link nav-link-active">История</a>
+        <a href="parse.html" class="nav-link">ИИ</a>
+        <a href="settings.html" class="nav-link">Настройки цен</a>
+        <a href="api-key.html" class="nav-link">API ключ</a>
+      </nav>
+    </header>
+
+    <main class="layout-single-column">
+      <section class="card history-toolbar">
+        <div class="history-toolbar-row">
+          <h2>История</h2>
+          <button type="button" id="filter-toggle" class="btn-secondary">Фильтр по датам</button>
+        </div>
+        <div id="filter-panel" class="filter-panel" style="display:none;">
+          <div class="filter-fields">
+            <label class="field">
+              <span>С</span>
+              <input type="date" id="filter-from" />
+            </label>
+            <label class="field">
+              <span>По</span>
+              <input type="date" id="filter-to" />
+            </label>
+          </div>
+          <div class="actions">
+            <button type="button" id="filter-apply">Применить</button>
+            <button type="button" id="filter-reset" class="btn-secondary">Сбросить</button>
+          </div>
+        </div>
+      </section>
+
+      <div id="history-list" class="history-list"></div>
+      <div id="history-empty" class="history-empty" style="display:none;">Расчётов пока нет.</div>
+      <div id="history-status" class="status history-status"></div>
+      <div id="history-sentinel" style="height:1px;"></div>
+    </main>
+  </div>
+
+  <script src="pricing-engine.js"></script>
+  <script src="local-store.js"></script>
+  <script src="local-parse.js"></script>
+  <script src="local-api.js"></script>
+  <script src="nav.js"></script>
+  <script src="bottomnav.js"></script>
+  <script src="history-db.js"></script>
+  <script src="history.js"></script>
+</body>
+</html>

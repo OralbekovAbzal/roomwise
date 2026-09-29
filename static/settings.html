@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
+  <title>Roomwise — Настройки цен</title>
+  <link rel="stylesheet" href="ds.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="topbar">
+      <div class="brand">
+        <img class="rw-logo" src="assets/roomwise-mark.svg" alt="roomwise" width="28" height="28" />
+        <span class="brand-title">Настройки цен</span>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="main-nav" id="main-nav">
+        <a href="index.html" class="nav-link">Калькулятор</a>
+        <a href="history.html" class="nav-link">История</a>
+        <a href="parse.html" class="nav-link">ИИ</a>
+        <a href="settings.html" class="nav-link nav-link-active">Настройки цен</a>
+        <a href="api-key.html" class="nav-link">API ключ</a>
+      </nav>
+    </header>
+
+    <main class="layout-single-column">
+      <section class="card">
+        <h2>Категории номеров</h2>
+        <p class="admin-hint">
+          Добавляйте и удаляйте категории, меняйте название, разрешённую вместимость, скидку для гостей с ОВ и тумблер доп. мест. Калькулятор подхватывает эти настройки автоматически.
+        </p>
+
+        <div id="categories-editor" class="categories-editor">
+          <span class="status">Загрузка…</span>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="add-category" class="btn-secondary">+ Добавить категорию</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Общие настройки</h2>
+        <p class="admin-hint">
+          Все цены вводятся <strong>с питанием</strong>. Для гостей «без питания» эта сумма вычитается из стоимости за каждую ночь и человека.
+        </p>
+        <div class="field meal-price-field">
+          <label for="meal-price">Цена питания (за чел./ночь)</label>
+          <input type="number" id="meal-price" min="0" value="0" />
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Диапазоны дат (периоды)</h2>
+        <p class="admin-hint">
+          Задавайте сезонные диапазоны дат. Для каждого диапазона у категорий ниже указываются свои цены. Год не учитывается — диапазоны повторяются каждый сезон.
+        </p>
+
+        <div id="periods-editor" class="periods-editor">
+          <span class="status">Загрузка…</span>
+        </div>
+
+        <div class="actions">
+          <button type="button" id="add-period" class="btn-secondary">+ Добавить период</button>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Цены по периодам</h2>
+        <p class="admin-hint">
+          Дневные цены по периодам и типам гостей. Строка «Доп. место» появляется у категорий с включённым тумблером. Изменения сохраняются в <code>prices.json</code>.
+        </p>
+
+        <div id="pricing-editor" class="pricing-editor">
+          <span class="status">Загрузка цен…</span>
+        </div>
+
+        <div class="actions">
+          <span id="pricing-status" class="status">Изменения сохраняются автоматически</span>
+          <button type="button" id="reload-pricing" class="btn-secondary">Загрузить из файла</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="pricing-engine.js"></script>
+  <script src="local-store.js"></script>
+  <script src="local-parse.js"></script>
+  <script src="local-api.js"></script>
+  <script src="nav.js"></script>
+  <script src="bottomnav.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

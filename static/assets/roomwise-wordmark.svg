@@ -1,0 +1,13 @@
+<svg width="248" height="56" viewBox="0 0 248 56" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Roomwise">
+  <defs>
+    <linearGradient id="rwTile2" x1="8" y1="8" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5C9BFF"></stop>
+      <stop offset="1" stop-color="#2E6BFF"></stop>
+    </linearGradient>
+  </defs>
+  <rect x="6" y="8" width="40" height="40" rx="12" fill="url(#rwTile2)"></rect>
+  <rect x="6.5" y="8.5" width="39" height="39" rx="11.5" stroke="#ffffff" stroke-opacity="0.35"></rect>
+  <rect x="16" y="24" width="17" height="15" rx="4.5" fill="#ffffff" fill-opacity="0.55"></rect>
+  <rect x="21" y="17" width="17" height="15" rx="4.5" fill="#ffffff" fill-opacity="0.95"></rect>
+  <text x="62" y="37" font-family="-apple-system, BlinkMacSystemFont, &#39;Segoe UI&#39;, Roboto, Arial, sans-serif" font-size="28" font-weight="700" letter-spacing="-0.5" fill="#F4F8FF">roomwise</text>
+</svg>

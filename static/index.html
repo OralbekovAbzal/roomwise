@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
+  <title>Roomwise — Калькулятор цен</title>
+  <link rel="stylesheet" href="ds.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="topbar">
+      <div class="brand">
+        <img class="rw-logo" src="assets/roomwise-mark.svg" alt="roomwise" width="28" height="28" />
+        <span class="brand-title">Калькулятор</span>
+      </div>
+      <span class="rw-appbar-action" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+      </span>
+    </header>
+
+    <main class="layout-two-column">
+      <section class="rw-cat-section">
+        <span class="rw-eyebrow">Категория</span>
+        <div class="rw-cat-rail" id="cat-rail"></div>
+      </section>
+
+      <section class="card">
+        <form id="calc-form">
+          <div class="field" id="category-field" style="display:none;">
+            <label for="category">Категория</label>
+            <select id="category" name="category" required></select>
+          </div>
+
+          <div class="field">
+            <label for="room_size">Вместимость номера</label>
+            <select id="room_size" name="room_size" required></select>
+            <div class="rw-seg" id="room_size_seg"></div>
+          </div>
+
+          <h3>Гости с питанием</h3>
+          <div class="field field-row">
+            <label for="adults_meal">Взрослые</label>
+            <input type="number" id="adults_meal" name="adults_meal" min="0" max="9" value="2" />
+          </div>
+          <div class="field field-row">
+            <label for="children_meal">Дети</label>
+            <input type="number" id="children_meal" name="children_meal" min="0" max="9" value="0" />
+          </div>
+
+          <h3>Гости без питания</h3>
+          <div class="field field-row">
+            <label for="adults_no_meal">Взрослые</label>
+            <input type="number" id="adults_no_meal" name="adults_no_meal" min="0" max="9" value="0" />
+          </div>
+          <div class="field field-row">
+            <label for="children_no_meal">Дети</label>
+            <input type="number" id="children_no_meal" name="children_no_meal" min="0" max="9" value="0" />
+          </div>
+
+          <h3 id="extra-bed-heading" style="display:none;">Доп. места</h3>
+          <div id="extra-bed-field" style="display:none;">
+            <div class="field field-row">
+              <label for="extra_bed_meal">С питанием</label>
+              <input type="number" id="extra_bed_meal" name="extra_bed_meal" min="0" max="9" value="0" />
+            </div>
+            <div class="field field-row">
+              <label for="extra_bed_no_meal">Без питания</label>
+              <input type="number" id="extra_bed_no_meal" name="extra_bed_no_meal" min="0" max="9" value="0" />
+            </div>
+          </div>
+
+          <h3>Гости с ограниченными возможностями</h3>
+          <div class="field checkbox-field">
+            <label>
+              <input type="checkbox" id="has_disabled" name="has_disabled" />
+              В брони есть гости с ОВ
+            </label>
+          </div>
+
+          <div id="disabled-fields" style="display:none;">
+            <div class="field field-row">
+              <label for="disabled_adults">Взрослые с ОВ</label>
+              <input type="number" id="disabled_adults" name="disabled_adults" min="0" max="9" value="0" />
+            </div>
+            <div class="field field-row">
+              <label for="disabled_children">Дети с ОВ</label>
+              <input type="number" id="disabled_children" name="disabled_children" min="0" max="9" value="0" />
+            </div>
+          </div>
+
+          <h3>Даты</h3>
+          <div class="grid">
+            <div class="field">
+              <label for="check_in">Заезд</label>
+              <input type="date" id="check_in" name="check_in" required />
+            </div>
+            <div class="field">
+              <label for="check_out">Выезд</label>
+              <input type="date" id="check_out" name="check_out" required />
+            </div>
+          </div>
+
+          <h3>Скидки и предоплата</h3>
+          <div class="grid">
+            <div class="field">
+              <label for="discount_percent">Скидка (%)</label>
+              <input type="number" id="discount_percent" name="discount_percent" min="0" max="100" value="0" />
+            </div>
+            <div class="field">
+              <label for="prepayment_percent">Предоплата (%)</label>
+              <input type="number" id="prepayment_percent" name="prepayment_percent" min="0" max="100" value="50" />
+            </div>
+          </div>
+
+          <div class="actions">
+            <button type="submit" id="calc-btn">Рассчитать</button>
+            <span id="status" class="status"></span>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2>Результат</h2>
+        <textarea id="result_text" rows="14" readonly placeholder="Заполните форму и нажмите «Рассчитать»"></textarea>
+        <div class="summary-grid">
+          <div class="summary-item">
+            <span class="summary-label">Итого</span>
+            <span id="total" class="summary-value">–</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">Со скидкой</span>
+            <span id="total_after_discount" class="summary-value">–</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">Предоплата</span>
+            <span id="prepayment_amount" class="summary-value">–</span>
+          </div>
+        </div>
+        <div class="actions">
+          <button type="button" id="copy-btn" class="btn-secondary">Копировать текст</button>
+          <span id="copy-indicator" class="status"></span>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="pricing-engine.js"></script>
+  <script src="local-store.js"></script>
+  <script src="local-parse.js"></script>
+  <script src="local-api.js"></script>
+  <script src="nav.js"></script>
+  <script src="bottomnav.js"></script>
+  <script src="history-db.js"></script>
+  <script src="app.js" onerror="document.body.innerHTML='<div style=&quot;padding:2rem;font-family:sans-serif&quot;><p><strong>Файл app.js не загрузился.</strong></p><p>Запустите приложение и откройте адрес из консоли.</p></div>'"></script>
+  <script src="ui-enhance.js"></script>
+  <script>
+    window.addEventListener("load", function () {
+      if (!window.__turanAppReady) {
+        var wrap = document.createElement("div");
+        wrap.style.cssText = "padding:2rem;font-family:sans-serif;max-width:520px;";
+        wrap.innerHTML = "<p><strong>Скрипт не инициализировался.</strong></p><p>Откройте консоль браузера (F12) и посмотрите ошибку.</p>";
+        document.body.innerHTML = "";
+        document.body.appendChild(wrap);
+      }
+    });
+  </script>
+</body>
+</html>

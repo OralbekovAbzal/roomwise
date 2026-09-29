@@ -1,0 +1,26 @@
+# --- Секреты ---
+gemini_api_key.txt
+
+# --- Node / Capacitor ---
+node_modules/
+
+# --- Python (legacy/server) ---
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# --- Сборки PyInstaller / Inno Setup (legacy) ---
+build/
+dist/
+Output/
+
+# --- IDE / локальные настройки ---
+.idea/
+.vscode/
+.claude/settings.local.json
+
+# --- ОС ---
+Thumbs.db
+desktop.ini
+.DS_Store

@@ -1,0 +1,252 @@
+/* ============================================================
+   Roomwise Design System — tokens + glass utilities
+   (colors / typography / spacing / effects + base.css)
+   Liquid-glass theme. Loaded BEFORE styles.css.
+   ============================================================ */
+
+:root {
+  /* ---- Canvas (behind the glass) ---- */
+  --canvas-900: #060912;
+  --canvas-800: #0a1020;
+  --canvas-700: #0e1730;
+
+  --blob-azure:  #2e6bff;
+  --blob-cyan:   #1fb6c9;
+  --blob-violet: #6e5bff;
+  --blob-amber:  #ff9e5e;
+  --blob-magenta:#c94fd6;
+
+  /* ---- Brand / primary action (azure) ---- */
+  --azure-300: #8fbcff;
+  --azure-400: #5c9bff;
+  --azure-500: #3e86ff;
+  --azure-600: #2e6bff;
+  --azure-700: #1f4fd6;
+  --azure-glow: rgba(62, 134, 255, 0.45);
+  --azure-soft: rgba(62, 134, 255, 0.16);
+
+  /* ---- Semantic accents ---- */
+  --mint-400:  #46d6a2;
+  --mint-soft: rgba(70, 214, 162, 0.16);
+  --amber-400: #ffb454;
+  --amber-soft:rgba(255, 180, 84, 0.16);
+  --cyan-400:  #36c6dc;
+  --cyan-soft: rgba(54, 198, 220, 0.16);
+  --rose-400:  #ff6b7d;
+  --rose-soft: rgba(255, 107, 125, 0.16);
+
+  /* ---- Ink (text on dark glass) ---- */
+  --ink-900: #f4f8ff;
+  --ink-700: rgba(232, 239, 253, 0.74);
+  --ink-500: rgba(228, 236, 252, 0.52);
+  --ink-300: rgba(224, 233, 251, 0.34);
+  --ink-on-accent: #ffffff;
+  --ink-inverse: #06122b;
+
+  /* ---- Glass surfaces ---- */
+  --glass-fill:        rgba(255, 255, 255, 0.07);
+  --glass-fill-strong: rgba(255, 255, 255, 0.12);
+  --glass-fill-hover:  rgba(255, 255, 255, 0.10);
+  --glass-fill-sunken: rgba(8, 12, 24, 0.34);
+  --glass-border:      rgba(255, 255, 255, 0.16);
+  --glass-border-soft: rgba(255, 255, 255, 0.09);
+  --glass-highlight:   rgba(255, 255, 255, 0.42);
+  --glass-fill-solid:  #141d36;
+  --glass-sunken-solid:#0c1428;
+
+  /* ---- Semantic aliases ---- */
+  --text-primary:    var(--ink-900);
+  --text-secondary:  var(--ink-700);
+  --text-muted:      var(--ink-500);
+  --text-faint:      var(--ink-300);
+  --action-primary:      var(--azure-500);
+  --action-primary-press:var(--azure-700);
+  --action-glow:         var(--azure-glow);
+  --positive: var(--mint-400);
+  --warning:  var(--amber-400);
+  --info:     var(--cyan-400);
+  --danger:   var(--rose-400);
+  --focus-ring: rgba(92, 155, 255, 0.55);
+
+  /* ---- Typography ---- */
+  --font-ui: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+             "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif;
+  --font-mono: ui-monospace, Menlo, Monaco, Consolas, monospace;
+  --font-data: var(--font-mono);
+
+  --text-2xs: 0.6875rem;
+  --text-xs:  0.75rem;
+  --text-sm:  0.8125rem;
+  --text-md:  0.9375rem;
+  --text-lg:  1.0625rem;
+  --text-xl:  1.3125rem;
+  --text-2xl: 1.625rem;
+  --text-3xl: 2.125rem;
+  --text-4xl: 2.75rem;
+
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-semibold:600;
+  --weight-bold:    700;
+  --weight-heavy:   800;
+
+  --leading-tight: 1.12;
+  --leading-snug:  1.32;
+  --leading-normal:1.55;
+
+  --tracking-tight:  -0.02em;
+  --tracking-snug:   -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide:   0.04em;
+  --tracking-wider:  0.08em;
+
+  --eyebrow-size: var(--text-2xs);
+  --eyebrow-weight: var(--weight-semibold);
+  --eyebrow-tracking: var(--tracking-wider);
+
+  /* ---- Spacing & layout ---- */
+  --space-1:4px; --space-2:8px; --space-3:12px; --space-4:16px;
+  --space-5:20px; --space-6:24px; --space-8:32px; --space-10:40px;
+  --touch-min: 48px;
+  --stepper-btn: 48px;
+  --screen-pad: 16px;
+  --screen-max: 480px;
+  --gap-card: 16px;
+  --gap-field: 12px;
+  --appbar-h: 56px;
+  --bottomnav-h: 64px;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-left: env(safe-area-inset-left, 0px);
+  --safe-right: env(safe-area-inset-right, 0px);
+
+  /* ---- Radii ---- */
+  --radius-xs:8px; --radius-sm:12px; --radius-md:16px; --radius-lg:22px;
+  --radius-xl:28px; --radius-2xl:34px; --radius-pill:999px;
+
+  /* ---- Blur ---- */
+  --blur-sm:10px; --blur-md:18px; --blur-lg:28px; --blur-xl:40px;
+  --blur-saturate: saturate(1.4);
+
+  /* ---- Shadows ---- */
+  --shadow-xs:    0 1px 2px rgba(2, 6, 18, 0.30);
+  --shadow-card:  0 8px 28px rgba(2, 6, 18, 0.42);
+  --shadow-raised:0 14px 40px rgba(2, 6, 18, 0.52);
+  --shadow-float: 0 24px 60px rgba(2, 6, 18, 0.62);
+  --shadow-glow:  0 8px 26px var(--azure-glow);
+  --inset-highlight: inset 0 1px 0 var(--glass-highlight);
+  --inset-sunken: inset 0 1px 2px rgba(2, 6, 18, 0.45);
+  --elev-card: var(--shadow-card), var(--inset-highlight);
+  --elev-raised: var(--shadow-raised), var(--inset-highlight);
+  --elev-float: var(--shadow-float), var(--inset-highlight);
+
+  --border-width: 1px;
+  --hairline: 1px solid var(--glass-border);
+  --hairline-soft: 1px solid var(--glass-border-soft);
+
+  /* ---- Motion ---- */
+  --ease-standard: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-emphasis: cubic-bezier(0.16, 1, 0.30, 1);
+  --ease-in-out:   cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 130ms;
+  --dur-base: 220ms;
+  --dur-slow: 360ms;
+  --dur-ambient: 22s;
+  --press-scale: 0.97;
+}
+
+/* ---- Tabular / eyebrow helpers ---- */
+.rw-tabular {
+  font-family: var(--font-data);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tracking-snug);
+}
+.rw-eyebrow {
+  font-size: var(--eyebrow-size);
+  font-weight: var(--eyebrow-weight);
+  letter-spacing: var(--eyebrow-tracking);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+/* ============================================================
+   Ambient canvas + glass surfaces (base.css)
+   ============================================================ */
+.rw-canvas {
+  position: relative;
+  background:
+    radial-gradient(120% 90% at 50% -10%, #12203f 0%, var(--canvas-800) 46%, var(--canvas-900) 100%);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  overflow: hidden;
+  isolation: isolate;
+}
+.rw-canvas::before,
+.rw-canvas::after {
+  content: "";
+  position: fixed;
+  inset: -20% -10%;
+  z-index: -1;
+  pointer-events: none;
+  filter: blur(60px) saturate(1.2);
+  opacity: 0.62;
+}
+.rw-canvas::before {
+  background:
+    radial-gradient(38% 34% at 18% 22%, var(--blob-azure) 0%, transparent 62%),
+    radial-gradient(34% 30% at 86% 14%, var(--blob-violet) 0%, transparent 60%),
+    radial-gradient(40% 40% at 78% 88%, var(--blob-cyan) 0%, transparent 60%);
+  animation: rw-drift-a var(--dur-ambient) var(--ease-in-out) infinite alternate;
+}
+.rw-canvas::after {
+  background:
+    radial-gradient(30% 26% at 70% 30%, var(--blob-magenta) 0%, transparent 60%),
+    radial-gradient(36% 32% at 22% 82%, var(--blob-amber) 0%, transparent 62%);
+  opacity: 0.4;
+  animation: rw-drift-b calc(var(--dur-ambient) * 1.3) var(--ease-in-out) infinite alternate;
+}
+@keyframes rw-drift-a {
+  from { transform: translate3d(-3%, -2%, 0) scale(1); }
+  to   { transform: translate3d(4%, 3%, 0) scale(1.12); }
+}
+@keyframes rw-drift-b {
+  from { transform: translate3d(3%, 2%, 0) scale(1.05); }
+  to   { transform: translate3d(-4%, -3%, 0) scale(1); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .rw-canvas::before, .rw-canvas::after { animation: none; }
+}
+
+.rw-glass {
+  position: relative;
+  background: var(--glass-fill);
+  border: var(--hairline);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--elev-card);
+}
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .rw-glass {
+    -webkit-backdrop-filter: blur(var(--blur-md)) var(--blur-saturate);
+    backdrop-filter: blur(var(--blur-md)) var(--blur-saturate);
+  }
+}
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .rw-glass { background: var(--glass-fill-solid); }
+}
+.rw-glass-strong { background: var(--glass-fill-strong); }
+.rw-glass-sunken {
+  background: var(--glass-fill-sunken);
+  border: var(--hairline-soft);
+  box-shadow: var(--inset-sunken);
+}
+.rw-glass-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 40%;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,0.10), transparent);
+  pointer-events: none;
+}
+.rw-noscrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+.rw-noscrollbar::-webkit-scrollbar { display: none; }

@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "turan",
+      "runtimeExecutable": "py",
+      "runtimeArgs": ["-m", "http.server", "8080", "--directory", "static"],
+      "port": 8080,
+      "autoPort": false
+    }
+  ]
+}

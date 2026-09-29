@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
+  <title>Roomwise — API ключ</title>
+  <link rel="stylesheet" href="ds.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="topbar">
+      <div class="brand">
+        <img class="rw-logo" src="assets/roomwise-mark.svg" alt="roomwise" width="28" height="28" />
+        <span class="brand-title">API ключ</span>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="main-nav" id="main-nav">
+        <a href="index.html" class="nav-link">Калькулятор</a>
+        <a href="history.html" class="nav-link">История</a>
+        <a href="parse.html" class="nav-link">ИИ</a>
+        <a href="settings.html" class="nav-link">Настройки цен</a>
+        <a href="api-key.html" class="nav-link nav-link-active">API ключ</a>
+      </nav>
+    </header>
+
+    <main class="layout-single-column">
+      <section class="card">
+        <h2>API ключ Gemini</h2>
+        <p class="admin-hint">
+          Страница ИИ использует Google Gemini для разбора сообщений клиентов. Укажите или обновите API ключ здесь. Оставьте поле пустым, чтобы удалить ключ.
+        </p>
+        <p id="key-status" class="status">Проверка…</p>
+        <p id="key-file-path" class="admin-hint" style="margin-top: 0; font-size: 0.72rem;"></p>
+        <div class="field">
+          <label for="api-key-input">API ключ</label>
+          <input type="password" id="api-key-input" placeholder="Вставьте ключ Gemini" autocomplete="off" />
+        </div>
+        <div class="actions">
+          <button type="button" id="save-key-btn">Сохранить ключ</button>
+          <span id="save-status" class="status"></span>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="pricing-engine.js"></script>
+  <script src="local-store.js"></script>
+  <script src="local-parse.js"></script>
+  <script src="local-api.js"></script>
+  <script src="nav.js"></script>
+  <script src="bottomnav.js"></script>
+  <script src="api-key.js"></script>
+</body>
+</html>

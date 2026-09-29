@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, interactive-widget=resizes-content" />
+  <title>Roomwise — ИИ</title>
+  <link rel="stylesheet" href="ds.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-container">
+    <header class="topbar">
+      <div class="brand">
+        <img class="rw-logo" src="assets/roomwise-mark.svg" alt="roomwise" width="28" height="28" />
+        <span class="brand-title">ИИ-разбор</span>
+      </div>
+      <button class="nav-toggle" id="nav-toggle" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav class="main-nav" id="main-nav">
+        <a href="index.html" class="nav-link">Калькулятор</a>
+        <a href="history.html" class="nav-link">История</a>
+        <a href="parse.html" class="nav-link nav-link-active">ИИ</a>
+        <a href="settings.html" class="nav-link">Настройки цен</a>
+        <a href="api-key.html" class="nav-link">API ключ</a>
+      </nav>
+    </header>
+
+    <main class="layout-two-column">
+      <section class="card">
+        <h2>Сообщение клиента</h2>
+        <p class="admin-hint">
+          Вставьте сообщение клиента на любом языке. ИИ извлечёт данные брони и рассчитает стоимость.
+        </p>
+        <div class="field">
+          <label for="client-message">Сообщение</label>
+          <textarea id="client-message" rows="14" placeholder="Например: 2 взрослых с питанием, 1 ребёнок без питания, эконом, заезд 15.06.2025, выезд 22.06.2025"></textarea>
+        </div>
+        <div id="parse-missing" class="parse-missing" style="display: none;"></div>
+        <div class="actions">
+          <button type="button" id="parse-btn">Разобрать</button>
+          <span id="parse-status" class="status"></span>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Результат</h2>
+        <textarea id="result_text" rows="14" readonly placeholder="Вставьте сообщение и нажмите «Разобрать»"></textarea>
+        <div class="summary-grid">
+          <div class="summary-item">
+            <span class="summary-label">Итого</span>
+            <span id="total" class="summary-value">–</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">Со скидкой</span>
+            <span id="total_after_discount" class="summary-value">–</span>
+          </div>
+          <div class="summary-item">
+            <span class="summary-label">Предоплата</span>
+            <span id="prepayment_amount" class="summary-value">–</span>
+          </div>
+        </div>
+        <div class="actions">
+          <button type="button" id="copy-btn" class="btn-secondary">Копировать текст</button>
+          <span id="copy-indicator" class="status"></span>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="pricing-engine.js"></script>
+  <script src="local-store.js"></script>
+  <script src="local-parse.js"></script>
+  <script src="local-api.js"></script>
+  <script src="nav.js"></script>
+  <script src="bottomnav.js"></script>
+  <script src="history-db.js"></script>
+  <script src="parse.js"></script>
+</body>
+</html>
